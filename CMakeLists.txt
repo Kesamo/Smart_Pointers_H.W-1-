@@ -13,13 +13,18 @@ set(
     ${CMAKE_SOURCE_DIR}/bin
 )
 
+add_subdirectory(benchmarks)
+
 add_executable(smart_pointers
     main.cpp
 )
 
-target_include_directories(smart_pointers
-    PRIVATE
+target_include_directories(smart_pointers PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/lib
+)
+
+target_link_libraries(smart_pointers PRIVATE
+    pointer_benchmark
 )
 
 target_compile_options(smart_pointers
