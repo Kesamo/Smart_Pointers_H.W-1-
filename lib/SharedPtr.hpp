@@ -34,7 +34,7 @@ private:
             return;
         }
 
-        --control->counter;
+        control->counter--;
 
         if(control->counter == 0) {
             delete control;
