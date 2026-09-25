@@ -87,7 +87,7 @@ public:
         ControlBlock<T>* new_control = other.control;
 
         if(new_control != nullptr) {
-            ++new_control->counter;
+            new_control->counter++;
         }
 
         release_control();
@@ -143,7 +143,7 @@ public:
         return *control->ptr;
     }
 
-    type* operator->() const noexcept requires (!std::is_array_v<T>) {
+    type* operator->() const requires (!std::is_array_v<T>) {
         return control->ptr;
     }
 
